@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -23,7 +22,12 @@ public class MainPanel : MonoBehaviour
         addDiamondButton.onClick.RemoveAllListeners();
     }
 
-    private void UpdateDiamondAmount() => diamondAmountText.text = DataManager.UserData.diamond.ToString();
+    private void UpdateDiamondAmount()
+    {
+        diamondAmountText.text = DataManager.UserData.diamond.ToString();
+        addDiamondButton.interactable = DataManager.UserData.diamond < 10000;
+    }
+
     private void UpdateHeartBar() => heartProgressBar.fillAmount = DataManager.UserData.heart / 100f;
 
     private IEnumerator APIAddDiamond()
