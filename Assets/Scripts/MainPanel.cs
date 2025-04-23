@@ -34,7 +34,7 @@ public class MainPanel : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("userId", DataManager.UserData.user_id);
-        UnityWebRequest www = UnityWebRequest.Post("https://test-piggy.codedefeat.com/worktest/dev02/addDiamond.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://127.0.0.1/Basic_System/addDiamond.php", form);
         yield return www.SendWebRequest();
         Debug.Log($"Status: {www.responseCode} Result: {www.downloadHandler.text}");
         if (www.result == UnityWebRequest.Result.Success)

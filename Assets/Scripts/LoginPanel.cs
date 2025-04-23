@@ -47,7 +47,7 @@ public class LoginPanel : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("username", usernameField.text);
         form.AddField("password", passwordField.text);
-        UnityWebRequest www = UnityWebRequest.Post("https://test-piggy.codedefeat.com/worktest/dev02/login.php", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://127.0.0.1/Basic_System/login.php", form);
         yield return www.SendWebRequest();
         Debug.Log($"Status: {www.responseCode} Result: {www.downloadHandler.text}");
         if (www.result == UnityWebRequest.Result.Success)
